@@ -1,0 +1,19 @@
+{
+  "name": "rcon-api",
+  "version": "1.0.0",
+  "description": "Rcon Connection Api",
+  "main": "index.js",
+  "scripts": {
+    "test": "nodemon ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Zer0Power/Rcon-Api.git"
+  },
+  "author": "Savage 0P",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Zer0Power/Rcon-Api/issues"
+  },
+  "homepage": "https://github.com/Zer0Power/Rcon-Api#readme"
+}
