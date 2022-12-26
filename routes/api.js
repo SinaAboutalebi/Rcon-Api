@@ -18,8 +18,10 @@ let errorEmbed = {
     title: "Error",
     color: parseInt("#FD0000".split("#")[1], 16),
 }
-let body = {
-    embeds: [errorEmbed]
+
+let responseEmbed = {
+    timestamp: new Date().toISOString(),
+    color: parseInt("#35fc03".split("#")[1], 16),
 }
 //---------------------------🤍🍷 'Zer0Power 🍷🤍---------------------------//
 //Functions
@@ -34,7 +36,25 @@ async function sendError(err) {
                 Authorization: `Bot ${process.env.TOKEN}`,
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify(body),
+            body: JSON.stringify({
+                embeds: [errorEmbed]
+            }),
+        })
+}
+
+async function sendResponse(err, channel) {
+    responseEmbed.description = err.toString()
+    let data = await fetch(
+        `https://discord.com/api/v10/channels/${channel}/messages`,
+        {
+            method: "POST",
+            headers: {
+                Authorization: `Bot ${process.env.TOKEN}`,
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                embeds: [responseEmbed]
+            }),
         })
 }
 //---------------------------🤍🍷 'Zer0Power 🍷🤍---------------------------//
@@ -102,14 +122,16 @@ router.post("/command", async (req, res) => {
         try {
             connection = new rcon(ip, port, process.env.PASSWORD)
             connection.connect()
+            connection.send("sm_plist")
 
             connection.on("auth", async () => {
                 console.log("connected");
-            }).on('response', function (str) {
-                console.log("Response: " + str);
+            }).on('response', async function (str) {
+                console.log(lable + " Response: " + str);
+                if (str.length > 1) { await sendResponse(lable + "\n" + str, req.body.channelID) }
             }).on('error', async function (err) {
                 sendError(lable + "\n" + err)
-                console.log(lable + "Error : " + err);
+                console.log(lable + " Error : " + err);
             }).on('end', function () {
                 console.log("Connection closed");
             });
