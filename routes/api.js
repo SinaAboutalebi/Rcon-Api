@@ -120,22 +120,30 @@ router.post("/command", async (req, res) => {
         }
         //Try To Connect Server Rcon ===========================================//
         try {
-            connection = new rcon(ip, port, process.env.PASSWORD)
+
+            connection = new rcon(ip, port, process.env.PASSWORD, {
+                "tcp": true,
+                "challenge": false
+            })
             connection.connect()
-            connection.send("sm_plist")
 
             connection.on("auth", async () => {
+
                 console.log("connected");
+                connection.send(req.body.cmd)
+
             }).on('response', async function (str) {
-                console.log(lable + " Response: " + str);
-                if (str.length > 1) { await sendResponse(lable + "\n" + str, req.body.channelID) }
+                if (str.length > 1) {
+                    await sendResponse(lable + "\n" + str, req.body.channelID)
+                    console.log(lable + " Response: " + str);
+                }
+
             }).on('error', async function (err) {
                 sendError(lable + "\n" + err)
                 console.log(lable + " Error : " + err);
             }).on('end', function () {
                 console.log("Connection closed");
             });
-
         } catch (error) {
             console.log(error);
             sendError(error)

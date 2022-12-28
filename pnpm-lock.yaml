@@ -7,7 +7,7 @@ specifiers:
   dotenv: ^16.0.3
   express: ^4.18.2
   node-fetch: ^2.6.7
-  rcon: ^1.1.0
+  rcon: ^1.0.3
 
 dependencies:
   body-parser: 1.20.1
@@ -16,7 +16,7 @@ dependencies:
   dotenv: 16.0.3
   express: 4.18.2
   node-fetch: 2.6.7
-  rcon: 1.1.0
+  rcon: 1.0.3
 
 packages:
 
@@ -494,8 +494,8 @@ packages:
       unpipe: 1.0.0
     dev: false
 
-  /rcon/1.1.0:
-    resolution: {integrity: sha512-eotwcApOBjfadTjqQlrZVR4jzlwGCMNxmHhnFZx+g4kouwwRstRHkk1ON7DzkqrHNIjADSh0cU3gThSsDolUpg==}
+  /rcon/1.0.3:
+    resolution: {integrity: sha512-nVu8/XphmWhZnmvkalky7HbX/xtrkxb2GGcFga6u68eHgJxbYKTEUMl1RUqJZ5icHmZ6DgFLJLbuWNqxjyVsuA==}
     dev: false
 
   /readable-stream/3.6.0:
