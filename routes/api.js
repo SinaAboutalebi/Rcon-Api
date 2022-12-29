@@ -115,8 +115,7 @@ router.post("/command", async (req, res) => {
                 break;
 
             default:
-                res.status(401).send({ error: 'Invalid Channel ID' })
-                break;
+                return res.status(401).send({ error: 'Invalid Channel ID' })
         }
         //Try To Connect Server Rcon ===========================================//
         try {
@@ -130,7 +129,11 @@ router.post("/command", async (req, res) => {
             connection.on("auth", async () => {
 
                 console.log("connected");
-                connection.send(req.body.cmd)
+                if (!req.body.cmd.startsWith("sm_")) {
+                    command = req.body.cmd.replace(/sm/g, 'sm_').replace("sm_ ", "sm_")
+                }
+                else { command = req.body.cmd }
+                connection.send(command)
 
             }).on('response', async function (str) {
                 if (str.length > 1) {
@@ -141,9 +144,11 @@ router.post("/command", async (req, res) => {
             }).on('error', async function (err) {
                 sendError(lable + "\n" + err)
                 console.log(lable + " Error : " + err);
+
             }).on('end', function () {
                 console.log("Connection closed");
             });
+
         } catch (error) {
             console.log(error);
             sendError(error)
