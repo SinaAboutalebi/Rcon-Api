@@ -92,13 +92,13 @@ router.post("/command", async (req, res) => {
 
             }).on('response', async function (str) {
                 if (str.length > 1) {
-                    await sendResponse(lable + "\n" + str, req.body.channelID)
-                    console.log(lable + " Response: " + str);
+                    await sendResponse(server.lable + "\n" + str, req.body.channelID)
+                    console.log(server.lable + " Response: " + str);
                 }
 
             }).on('error', async function (err) {
-                sendError(lable + "\n" + err)
-                console.log(lable + " Error : " + err);
+                sendError(server.lable + "\n" + err)
+                console.log(server.lable + " Error : " + err);
 
             }).on('end', function () {
                 console.log("Connection closed");
