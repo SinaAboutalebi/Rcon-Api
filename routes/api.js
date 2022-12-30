@@ -108,7 +108,7 @@ router.post("/command", async (req, res) => {
             console.log(error);
             sendError(error)
         }
-        logger(server.lable+":"+req.body.user+"-"+req.body.cmd)
+        logger(server.lable+" : "+req.body.user+" - "+req.body.cmd)
         return res.status(200).send(server)
         
     }
