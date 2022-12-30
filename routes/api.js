@@ -7,7 +7,8 @@ const rcon = require('rcon');
 const fetch = require("node-fetch");
 
 const config = require('../config.json');
-const getServer = require('../getServer.js');
+const getServer = require('../functions/getServer.js');
+const logger = require('../functions/logger');
 
 //---------------------------🤍🍷 'Zer0Power 🍷🤍---------------------------//
 //Params
@@ -107,8 +108,9 @@ router.post("/command", async (req, res) => {
             console.log(error);
             sendError(error)
         }
-
+        logger(server.lable+":"+req.body.user+"-"+req.body.cmd)
         return res.status(200).send(server)
+        
     }
 
 });

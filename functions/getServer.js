@@ -1,7 +1,7 @@
 //---------------------------🤍🍷 'Zer0Power 🍷🤍---------------------------//
 //Packages
 
-const config = require('./config.json');
+const config = require('../config.json');
 
 //---------------------------🤍🍷 'Zer0Power 🍷🤍---------------------------//
 //Export Data
