@@ -15,7 +15,7 @@ router.post("/", async (req, res) => {
     if (req.body.auth != process.env.SECRET) {
         return res.status(401).send({ error: 'Unauthorized' })
     } else {
-        //Get Server Ip Port Based On Channel ID================================//
+        //Check Request Body Params=================================================//
 
         if (!req.body.sv || !req.body.port || !req.body.cmd || !req.body.pass) {
             return res.status(401).send({ error: "Invalid params" })
