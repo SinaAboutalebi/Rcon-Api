@@ -43,7 +43,7 @@ router.post("/", async (req, res) => {
                     }
 
                 }).on('error', async function (err) {
-                    return res.status(401).send({ server: req.body.sv, port: req.body.port, error: err })
+                    return res.status(401).send({ server: req.body.sv, port: req.body.port, error: err.toString() })
 
                 })
 
