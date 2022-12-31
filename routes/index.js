@@ -10,8 +10,8 @@ const router = express.Router();
 const commandRouter = require('./command'); //Default Command Router For Discord Bot
 router.use('/command', commandRouter);
 
-const costumeRouter = require('./costume'); //Costume Command Router For Personal Use
-router.use('/costume', costumeRouter);
+const customRouter = require('./custom'); //custom Command Router For Personal Use
+router.use('/custom', customRouter);
 
 module.exports = router;
 
