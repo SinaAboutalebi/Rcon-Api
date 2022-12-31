@@ -7,8 +7,9 @@ const router = express.Router();
 //---------------------------🤍🍷 'Zer0Power 🍷🤍---------------------------//
 //Set Routes
 
-const apiRouter = require('./api');
-router.use('/api', apiRouter)
+const commandRouter = require('./command');
+router.use('/command', commandRouter)
+
 
 module.exports = router;
 
