@@ -62,7 +62,7 @@ async function sendResponse(err, channel) {
 //---------------------------🤍🍷 'Zer0Power 🍷🤍---------------------------//
 //Routes
 
-router.post("/command", async (req, res) => {
+router.post("/", async (req, res) => {
 
     if (req.body.auth != process.env.SECRET) {
         return res.status(401).send({ error: 'Unauthorized' })

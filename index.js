@@ -32,7 +32,7 @@ blue = "\x1b[34m";
 app.use(cors({ methods: ['GET','POST']}));
 app.use(bodyParser.json());
 
-app.use("/", routes);
+app.use("/api", routes);
 
 app.use("*", (req, res) => {
     res.status(401).send({ error: 'Unauthorized' });
