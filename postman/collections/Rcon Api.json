@@ -1,0 +1,102 @@
+{
+	"info": {
+		"_postman_id": "b9e7b6a7-a6a1-4655-88b0-f323afe0c6e7",
+		"name": "Rcon Api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_uid": "25181903-b9e7b6a7-a6a1-4655-88b0-f323afe0c6e7"
+	},
+	"item": [
+		{
+			"name": "Default Rcons",
+			"id": "e1f6abc5-54ce-4e2b-8b4e-3058858a28b0",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"auth\":\"\", \"channelID\":\"\", \"cmd\":\"\", \"user\":\"\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "127.0.0.1:5698/api/command",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5698",
+					"path": [
+						"api",
+						"command"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Custom Rcons",
+			"id": "b5d8a23f-a004-41d5-8ee9-e10aaadd687c",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"auth\":\"\", \"sv\":\"\", \"cmd\":\"\", \"port\":\"\",\"pass\":\"\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "127.0.0.1:5698/api/custom",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5698",
+					"path": [
+						"api",
+						"custom"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "722dc98b-aed6-4213-9652-4fb08dd37cf9",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "e12c1a2b-ed4b-4bb2-a43d-d27b3f0cc1e6",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
