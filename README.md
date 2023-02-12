@@ -1,3 +1,3 @@
- Rcon-Api
+# Rcon-Api
 Rcon Connection API
 
